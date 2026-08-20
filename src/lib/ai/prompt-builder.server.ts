@@ -61,7 +61,7 @@ const MODE_INSTRUCTIONS: Record<string, string> = {
 
 export interface BriefPayload {
   mode: string;
-  brandKit?: Record<string, string> | null;
+  brandKit?: Record<string, string> | null | undefined;
   [key: string]: unknown;
 }
 
@@ -76,7 +76,7 @@ function renderPairs(data: Record<string, unknown>, skip: string[] = []): string
 }
 
 export function buildMessages(payload: BriefPayload) {
-  const engine = ENGINES[payload.mode];
+  const engine = ENGINES[payload.mode]!;
   const isCopy = payload.mode === "caption_hook";
 
   const system = [

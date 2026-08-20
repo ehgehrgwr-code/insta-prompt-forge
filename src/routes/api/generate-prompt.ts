@@ -48,7 +48,7 @@ export const Route = createFileRoute("/api/generate-prompt")({
 
         const baseUrl = process.env["AI_BASE_URL"] ?? "https://bandelbanget.xyz/v1";
         const model = process.env["AI_MODEL"] ?? "deepseek-v4-flash";
-        const engine = ENGINES[parsed.data.mode];
+        const engine = ENGINES[parsed.data.mode]!;
 
         let upstream: Response;
         try {
